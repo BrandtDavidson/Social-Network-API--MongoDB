@@ -2,7 +2,7 @@
 // creating the Schema for the User Model
 // destructure Schema and model from mongoose
 // No longer need to use ' new mongoose.Schema({}); after destructuring what we need
-import { validateEmail } from "../utils/validation";
+// import { validateEmail } from "../utils/validation";
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
@@ -17,8 +17,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      // using regex to validate email
-      validate: validateEmail,
+    //   // using regex to validate email
+    //   validate: validateEmail,
     },
     thoughts: [
       {

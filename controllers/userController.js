@@ -14,6 +14,7 @@ BONUS: remove a user's associated thoughts when deleted
 - DELETE to remove a friend from a user's friend list 
 */
 
+
 module.exports = {
   getUsers(req, res) {
     User.find()
@@ -23,7 +24,7 @@ module.exports = {
 
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
-      // .select('-__v') // versionKey --> contains the internal revision of the document, the name of the document is configurable 
+      // .select('-__v') // versionKey --> contains the internal revision of the document, the name of the document is configurable
       .then((user) =>
         !user
           ? res
@@ -41,14 +42,12 @@ module.exports = {
   },
 
   deleteUser(req, res) {
-    User.findOneAndDelete({ _id: req.params.userId })
+    User.findOneAndRemove({ _id: req.params.userId })
       .then((user) =>
         !user
-          ? res
-              .status(404)
-              .json({
-                message: "Cannot delete, no user with that associated ID",
-              })
+          ? res.status(404).json({
+              message: "Cannot delete, no user with that associated ID",
+            })
           : res.json({ message: "User has been deleted" })
       )
       .catch((err) => res.status(500).json(err));
@@ -62,11 +61,9 @@ module.exports = {
     )
       .then((user) =>
         !user
-          ? res
-              .status(404)
-              .json({
-                message: "No user found with that associated ID (update)",
-              })
+          ? res.status(404).json({
+              message: "No user found with that associated ID (update)",
+            })
           : res.json(user)
       )
       .catch((err) => {
@@ -82,11 +79,9 @@ module.exports = {
     )
       .then((user) =>
         !user
-          ? res
-              .status(404)
-              .json({
-                message: "No user found with that associated ID (adding friend",
-              })
+          ? res.status(404).json({
+              message: "No user found with that associated ID (adding friend",
+            })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
@@ -99,12 +94,10 @@ module.exports = {
     )
       .then((user) =>
         !user
-          ? res
-              .status(404)
-              .json({
-                message:
-                  "No user found with that associated ID (removing a friend",
-              })
+          ? res.status(404).json({
+              message:
+                "No user found with that associated ID (removing a friend",
+            })
           : res.json(user)
       )
       .catch((err) => res.status(500).json(err));
