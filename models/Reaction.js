@@ -27,6 +27,7 @@ const reactionSchema = new Schema(
     {
         toJSON: {
             getters: true, // not setting a virtual here --> importing for other model use
+            // getter method to format the timestamp on query
         },
         id: false,
     }
