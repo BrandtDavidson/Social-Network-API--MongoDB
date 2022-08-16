@@ -10,16 +10,15 @@ const userSchema = new Schema(
     username: {
       type: String,
       unique: true,
-      require: true,
+      required: true,
       trim: true,
     },
     email: {
       type: String,
-      require: true,
+      required: true,
       unique: true,
       // using regex to validate email
       validate: validateEmail,
-      match: [re],
     },
     thoughts: [
       {
