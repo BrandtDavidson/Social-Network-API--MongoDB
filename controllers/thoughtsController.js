@@ -49,7 +49,7 @@ module.exports = {
   },
 
 updateThought(req, res) {
-    Thought.findOneAndUpdate({ _id: req.params.thoughtId}, { $set: req.body }, { new: true}, { runValidators: true })
+    Thought.findOneAndUpdate({ _id: req.params.thoughtId}, { $set: req.body }, { runValidators: true, new: true})
     .then((thought) => 
         !thought
             ? res.status(404).json({ message: 'No thought was found with the associated ID'})
@@ -61,7 +61,7 @@ updateThought(req, res) {
 },
 
 addReaction(req, res) {
-    Thought.findOneAndUpdate({ _id: req.params.thoughtId}, { $push: { reactions: req.body}}, { new: true}, { runValidators: true})
+    Thought.findOneAndUpdate({ _id: req.params.thoughtId}, { $push: { reactions: req.body}}, { runValidators: true, new: true})
     .then((thought) => 
         !thought
             ? res.status(404).json({ message: 'No thought was found with the associated id'})
@@ -71,7 +71,7 @@ addReaction(req, res) {
 },
 
 deleteReaction(req, res) {
-    Thought.findOneAndUpdate({ _id: req.params.thoughtId}, { $pull: { reactions: { reactionId: req.params.reactionId}}}, { new: true }, { runValidators: true })
+    Thought.findOneAndUpdate({ _id: req.params.thoughtId}, { $pull: { reactions: { reactionId: req.params.reactionId}}}, { runValidators: true,new: true })
     .then((thought) => 
         !thought
             ? res.status(404).json({ message: 'No thought was found with the associated id'})

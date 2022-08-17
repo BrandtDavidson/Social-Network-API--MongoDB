@@ -1,6 +1,6 @@
 const User = require("../models/User");
 
-/* We want to: 
+/* We want to -
 - GET all users  --> find()
 - GET a single user by its _id and populated thought and friend data findOne()
 - POST a new user create()
