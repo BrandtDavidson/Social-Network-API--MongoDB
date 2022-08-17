@@ -37,7 +37,7 @@ Thoughts and Reactions:
 
 ## Demo of Routes
 
->[Video Walkthrough Link](https://drive.google.com/file/d/1mJk5kbd86WtIC6YZ-J-ZIecmhxpB3Xue/view)
+>[Video Walkthrough Link: [3:14 runtime]](https://drive.google.com/file/d/1mJk5kbd86WtIC6YZ-J-ZIecmhxpB3Xue/view)
 
 ## Screenshots 
 
