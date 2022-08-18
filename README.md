@@ -29,11 +29,11 @@ Thoughts and Reactions:
 
 `/api/thoughts` : GET, POST
 
-`/api/thoughts/:thoughId` : GET, PUT, DELETE
+`/api/thoughts/:thoughtId` : GET, PUT, DELETE
 
-`/api/thoughts/:thoughId/reactions` : POST
+`/api/thoughts/:thoughtId/reactions` : POST
 
-`/api/thoughts/:thoughId/reactions/:reactionId` : DELETE
+`/api/thoughts/:thoughtId/reactions/:reactionId` : DELETE
 
 ## Demo of Routes
 
